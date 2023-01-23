@@ -75,7 +75,7 @@ Create three compute instances which will host the Kubernetes control plane:
 
 ```
 IMAGE_ID=$(oci compute image list --operating-system "Canonical Ubuntu" --operating-system-version \
-  "20.04" | jq -r .data[0].id)  
+  "20.04" | jq -r '.data[0].id')  
 NUM_ADS=$(oci iam availability-domain list | jq -r .data | jq length)  
 for i in 0 1 2; do
   # Rudimentary distributing of nodes across Availability Domains and Fault Domains
